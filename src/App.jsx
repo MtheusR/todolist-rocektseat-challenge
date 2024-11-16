@@ -1,4 +1,6 @@
 import { SectionInput } from './SectionInput';
+import { SectionTasks } from './SectionTasks';
+
 export function App() {
 	return (
 		<>
@@ -8,6 +10,8 @@ export function App() {
 				</header>
 
 				<SectionInput />
+
+				<SectionTasks />
 			</main>
 		</>
 	);
