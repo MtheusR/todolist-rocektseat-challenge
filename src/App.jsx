@@ -1,13 +1,9 @@
-import { useState } from 'react'
-
 function App() {
-  return (
-    <>
-      <p className="text-3xl">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	return (
+		<>
+			<p className="text-3xl">Click on the Vite and React logos to learn more</p>
+		</>
+	);
 }
 
-export default App
+export default App;
