@@ -1,5 +1,6 @@
 import { Chip } from '@material-tailwind/react';
 import { HiDocumentMinus } from 'react-icons/hi2';
+import { TaskItem } from './TaskItem';
 
 function ChipCustom({ valueChip }) {
 	return <Chip className="px-2 bg-gray-400 normal-case" value={valueChip} />;
@@ -22,7 +23,7 @@ function EmpytList() {
 
 export function SectionTasks() {
 	return (
-		<main className="flex flex-col items-center mx-4 gap-6">
+		<main className="flex flex-col items-center mx-4 gap-6 mt-16">
 			<header className="flex justify-between w-full max-w-[736px]">
 				<div className="flex items-center gap-2">
 					<p className="font-semibold text-blue">Tarefas criadas</p>
@@ -33,8 +34,9 @@ export function SectionTasks() {
 					<ChipCustom valueChip="2 de 5" />
 				</div>
 			</header>
-			<section className="flex justify-center w-full max-w-[736px]">
-				<EmpytList />
+			<section className="flex w-full max-w-[736px]">
+				{/* <EmpytList /> */}
+				<TaskItem />
 			</section>
 		</main>
 	);
