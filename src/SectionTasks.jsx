@@ -2,6 +2,11 @@ import { Chip } from '@material-tailwind/react';
 import { HiDocumentMinus } from 'react-icons/hi2';
 import { TaskItem } from './TaskItem';
 
+const TASKS = [
+	{ id: 1, checked: false, description: 'Estudar React.js' },
+	{ id: 2, checked: true, description: 'Comprar frutas no mercado' },
+];
+
 function ChipCustom({ valueChip }) {
 	return <Chip className="px-2 bg-gray-400 normal-case" value={valueChip} />;
 }
@@ -34,9 +39,11 @@ export function SectionTasks() {
 					<ChipCustom valueChip="2 de 5" />
 				</div>
 			</header>
-			<section className="flex w-full max-w-[736px]">
+			<section className="flex flex-col gap-2  w-full max-w-[736px]">
 				{/* <EmpytList /> */}
-				<TaskItem />
+				{TASKS.map((task) => {
+					return <TaskItem key={task.id} checked={task.checked} description={task.description} />;
+				})}
 			</section>
 		</main>
 	);
