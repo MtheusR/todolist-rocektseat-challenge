@@ -1,7 +1,11 @@
 import { Checkbox, IconButton } from '@material-tailwind/react';
 import { LuTrash2 } from 'react-icons/lu';
 
-export function TaskItem({ checked, description }) {
+export function TaskItem({ id, checked, description, onDeleteTask }) {
+	function handleDeleteTask() {
+		onDeleteTask({ id });
+	}
+
 	return (
 		<>
 			<div className="flex p-4 rounded-lg justify-between bg-gray-500">
@@ -16,13 +20,14 @@ export function TaskItem({ checked, description }) {
 						checked={checked}
 					/>
 					<p className={checked ? 'text-sm text-gray-300 line-through' : 'text-sm text-gray-100'}>
-						{description}
+						{description} {id}
 					</p>
 					{/* text-gray-300 line-through */}
 					{/* <p className="text-gray-100 text-sm">{description}</p> */}
 				</div>
 
 				<button
+					onClick={handleDeleteTask}
 					type="button"
 					className="m-0 hover:bg-gray-400 p-2 rounded-md text-gray-300 hover:text-danger transition-all duration-300 bg-transparent"
 				>
