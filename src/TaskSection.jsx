@@ -3,7 +3,6 @@ import { Button, Chip } from '@material-tailwind/react';
 import { MdAddCircleOutline } from 'react-icons/md';
 import { HiDocumentMinus } from 'react-icons/hi2';
 import { TaskItem } from './TaskItem';
-import { comment } from 'postcss';
 
 function CustomChip({ value }) {
 	return <Chip className="px-2 bg-gray-400 normal-case" value={value} />;
@@ -67,7 +66,7 @@ export function TaskSection() {
 					value={newTaskText}
 					className="bg-gray-500 rounded-lg p-4 border-2 border-gray-700 placeholder:text-gray-300 focus:outline-none text-gray-100 focus:border-purple-dark w-full max-w-[638px]"
 					placeholder="Adicione uma tarefa"
-					onChange={newTaskChange} // Atualiza o estado do input
+					onChange={newTaskChange}
 					autoComplete="off"
 				/>
 				<Button

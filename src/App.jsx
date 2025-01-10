@@ -6,7 +6,6 @@ export function App() {
 				<header className="flex justify-center bg-gray-700 p-20">
 					<img src="/logotipo.svg" alt="logo todo" />
 				</header>
-
 				<TaskSection />
 			</main>
 		</>

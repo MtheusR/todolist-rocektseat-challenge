@@ -23,8 +23,6 @@ export function TaskItem({ id, checked, description, onDeleteTask, onToggleCheck
 					<p className={checked ? 'text-sm text-gray-300 line-through' : 'text-sm text-gray-100'}>
 						{description} {id}
 					</p>
-					{/* text-gray-300 line-through */}
-					{/* <p className="text-gray-100 text-sm">{description}</p> */}
 				</div>
 
 				<button
