@@ -1,7 +1,7 @@
 import { Checkbox, IconButton } from '@material-tailwind/react';
 import { LuTrash2 } from 'react-icons/lu';
 
-export function TaskItem({ id, checked, description, onDeleteTask }) {
+export function TaskItem({ id, checked, description, onDeleteTask, onToggleChecked }) {
 	function handleDeleteTask() {
 		onDeleteTask({ id });
 	}
@@ -17,7 +17,8 @@ export function TaskItem({ id, checked, description, onDeleteTask }) {
 							className: 'py-1 px-0',
 						}}
 						ripple={false}
-						checked={checked}
+						defaultChecked={false}
+						onChange={onToggleChecked}
 					/>
 					<p className={checked ? 'text-sm text-gray-300 line-through' : 'text-sm text-gray-100'}>
 						{description} {id}

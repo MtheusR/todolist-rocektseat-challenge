@@ -28,18 +28,18 @@ export function TaskSection() {
 	const [newTaskText, setNewTaskText] = useState('');
 
 	function handleCreateNewTask(event) {
-		event.preventDefault(); // Previne o comportamento padrão do formulário
+		event.preventDefault();
 
-		if (newTaskText.trim() === '') return; // Não adiciona tarefas vazias
+		if (newTaskText.trim() === '') return;
 
 		const newTask = {
-			id: tasks.length + 1, // Gera um ID único (pode ser melhorado)
+			id: tasks.length + 1,
 			checked: false,
 			description: newTaskText,
 		};
 
-		setTasks([...tasks, newTask]); // Adiciona a nova tarefa à lista existente
-		setNewTaskText(''); // Reseta o campo de texto
+		setTasks([...tasks, newTask]);
+		setNewTaskText('');
 	}
 
 	function newTaskChange(event) {
@@ -48,7 +48,14 @@ export function TaskSection() {
 
 	function deleteTask(taskToDelete) {
 		const updatedTasks = tasks.filter((task) => task.id !== taskToDelete.id);
-		setTasks(updatedTasks); // Atualiza a lista de tarefas
+		setTasks(updatedTasks);
+	}
+
+	function toggleTaskChecked(taskId) {
+		const updatedTasks = tasks.map((task) =>
+			task.id === taskId ? { ...task, checked: !task.checked } : task,
+		);
+		setTasks(updatedTasks);
 	}
 
 	return (
@@ -61,6 +68,7 @@ export function TaskSection() {
 					className="bg-gray-500 rounded-lg p-4 border-2 border-gray-700 placeholder:text-gray-300 focus:outline-none text-gray-100 focus:border-purple-dark w-full max-w-[638px]"
 					placeholder="Adicione uma tarefa"
 					onChange={newTaskChange} // Atualiza o estado do input
+					autoComplete="off"
 				/>
 				<Button
 					type="submit"
@@ -95,6 +103,7 @@ export function TaskSection() {
 								checked={task.checked}
 								description={task.description}
 								onDeleteTask={() => deleteTask(task)}
+								onToggleChecked={() => toggleTaskChecked(task.id)}
 							/>
 						))
 					)}
